@@ -4,6 +4,6 @@ import androidx.paging.PagingData
 import com.lucas.breweries.domain.model.Brewery
 import kotlinx.coroutines.flow.Flow
 
-interface BreweryRepository {
+interface BreweriesRepository {
     suspend fun getBreweries() : Flow<PagingData<Brewery>>
 }

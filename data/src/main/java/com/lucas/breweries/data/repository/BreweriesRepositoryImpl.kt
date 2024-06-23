@@ -7,16 +7,16 @@ import com.lucas.breweries.data.core.remote.BreweryApi.Companion.BREWERIES_PAGE_
 import com.lucas.breweries.data.datasource.BreweryDataSource
 import com.lucas.breweries.data.paging.BreweryPagingSource
 import com.lucas.breweries.domain.model.Brewery
-import com.lucas.breweries.domain.repository.BreweryRepository
+import com.lucas.breweries.domain.repository.BreweriesRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class BreweryRepositoryImpl @Inject constructor(
+class BreweriesRepositoryImpl @Inject constructor(
     private val breweryDataSource: BreweryDataSource,
     private val coroutineDispatcher: CoroutineDispatcher
-) : BreweryRepository {
+) : BreweriesRepository {
 
     override suspend fun getBreweries(): Flow<PagingData<Brewery>> =
         withContext(coroutineDispatcher) {
