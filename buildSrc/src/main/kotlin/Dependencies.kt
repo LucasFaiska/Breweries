@@ -55,20 +55,20 @@ object Dependencies {
 
     object Test {
         const val junit = "junit:junit:4.13.2"
-        const val junitExt = "androidx.test.ext:junit:1.1.5"
-        const val espressoCore = "androidx.test.espresso:espresso-core:3.5.1"
-        const val mockk = "io.mockk:mockk:1.13.10"
+        const val junitExt = "androidx.test.ext:junit:1.5.2"
+        const val espressoCore = "androidx.test.espresso:espresso-core:3.6.0"
+        const val mockk = "io.mockk:mockk:1.13.11"
         const val turbine = "app.cash.turbine:turbine:1.1.0"
     }
 
     object Retrofit {
-        private const val version = "2.9.0"
+        private const val version = "2.11.0"
         const val retrofit = "com.squareup.retrofit2:retrofit:$version"
         const val gsonConverter = "com.squareup.retrofit2:converter-gson:$version"
     }
 
     object Hilt {
-        private const val version = "2.51"
+        private const val version = "2.51.1"
         const val hilt = "com.google.dagger:hilt-android:$version"
         const val hiltCompiler = "com.google.dagger:hilt-android-compiler:$version"
         const val hiltNavigationCompose = "androidx.hilt:hilt-navigation-compose:1.2.0"
@@ -82,13 +82,13 @@ object Dependencies {
     }
 
     object Coroutines {
-        private const val version = "1.8.0"
+        private const val version = "1.8.1"
         const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
         const val test =  "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version"
     }
 
     object Compose {
-        private const val version = "1.6.4"
+        private const val version = "1.6.8"
         const val ui = "androidx.compose.ui:ui:$version"
         const val material = "androidx.compose.material:material:$version"
         const val uiToolingPreview = "androidx.compose.ui:ui-tooling-preview:$version"
@@ -106,5 +106,10 @@ object Dependencies {
         private const val version = "3.3.0"
         const val paging = "androidx.paging:paging-runtime:$version"
         const val pagingCompose = "androidx.paging:paging-compose:$version"
+    }
+
+    object ViewModelLifecycle {
+        private const val version = "2.8.2"
+        const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:$version"
     }
 }

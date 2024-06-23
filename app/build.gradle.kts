@@ -44,12 +44,16 @@ android {
 }
 
 dependencies {
+    implementation(project(":domain"))
 
     implementation(Dependencies.Compose.ui)
     implementation(Dependencies.Compose.uiToolingPreview)
     implementation(Dependencies.Compose.material)
     implementation(Dependencies.ComposeNavigation.navigation)
     implementation(Dependencies.Hilt.hiltNavigationCompose)
+    implementation(Dependencies.Paging.paging)
+    implementation(Dependencies.Paging.pagingCompose)
+    implementation(Dependencies.ViewModelLifecycle.viewModel)
 
     implementation(Dependencies.Hilt.hilt)
     kapt(Dependencies.Hilt.hiltCompiler)

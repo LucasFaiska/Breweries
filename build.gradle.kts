@@ -9,7 +9,6 @@ buildscript {
         classpath(ClasspathDependencies.androidGradlePlugin)
         classpath(ClasspathDependencies.kotlinGradlePlugin)
         classpath(ClasspathDependencies.hiltGradlePlugin)
-        classpath(libs.kotlin.gradle.plugin)
     }
 }
 
