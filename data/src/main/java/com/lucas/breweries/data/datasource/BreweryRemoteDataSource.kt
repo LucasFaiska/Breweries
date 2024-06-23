@@ -11,4 +11,8 @@ class BreweryRemoteDataSource @Inject constructor(
     override suspend fun getBreweries(page: Int): NetworkResponse<List<BreweryResponse>> {
         return breweryApi.getBreweries(page)
     }
+
+    override suspend fun getBrewery(id: String): NetworkResponse<BreweryResponse> {
+        return breweryApi.getBrewery(id)
+    }
 }

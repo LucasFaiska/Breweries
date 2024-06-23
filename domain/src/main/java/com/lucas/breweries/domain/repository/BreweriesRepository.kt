@@ -6,4 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface BreweriesRepository {
     suspend fun getBreweries() : Flow<PagingData<Brewery>>
+    suspend fun getBrewery(id: String) : Flow<Brewery>
 }

@@ -1,6 +1,5 @@
 package com.lucas.breweries.data.di
 
-import com.lucas.breweries.core.di.IoDispatcher
 import com.lucas.breweries.data.core.remote.BreweryApi
 import com.lucas.breweries.data.datasource.BreweryDataSource
 import com.lucas.breweries.data.datasource.BreweryRemoteDataSource

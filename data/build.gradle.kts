@@ -34,7 +34,6 @@ android {
 
 dependencies {
     implementation(project(":domain"))
-    implementation(project(":core"))
 
     implementation(Dependencies.OkHttp.okhttp)
     implementation(Dependencies.Retrofit.retrofit)

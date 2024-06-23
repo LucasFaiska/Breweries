@@ -1,4 +1,4 @@
-package com.lucas.breweries.core.di
+package com.lucas.breweries.data.di
 
 import dagger.Module
 import dagger.Provides
