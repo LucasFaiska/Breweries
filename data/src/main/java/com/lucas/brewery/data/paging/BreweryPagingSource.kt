@@ -1,22 +1,24 @@
-package com.lucas.brewery.data.repository.paging
+package com.lucas.brewery.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.lucas.brewery.data.core.remote.dto.BreweryResponse
 import com.lucas.brewery.data.core.remote.network.NetworkResponse
 import com.lucas.brewery.data.datasource.BreweryDataSource
+import com.lucas.brewery.data.mapper.toBrewery
+import com.lucas.brewery.domain.model.Brewery
 
 class BreweryPagingSource(
     private val breweryDataSource: BreweryDataSource
-) : PagingSource<Int, BreweryResponse>() {
+) : PagingSource<Int, Brewery>() {
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, BreweryResponse> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Brewery> {
         val currentPage = params.key ?: 1
-        return when (val response = breweryDataSource.getBreweries(currentPage)) {
+        return when (val response =
+            breweryDataSource.getBreweries(currentPage)) {
             is NetworkResponse.Success -> {
                 val breweries = response.body
                 LoadResult.Page(
-                    data = breweries,
+                    data = breweries.map { it.toBrewery() },
                     prevKey = if (currentPage == 1) null else currentPage - 1,
                     nextKey = if (breweries.isEmpty()) null else currentPage + 1
                 )
@@ -28,7 +30,7 @@ class BreweryPagingSource(
         }
     }
 
-    override fun getRefreshKey(state: PagingState<Int, BreweryResponse>): Int? {
+    override fun getRefreshKey(state: PagingState<Int, Brewery>): Int? {
         return state.anchorPosition
     }
 }

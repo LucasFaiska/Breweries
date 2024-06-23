@@ -17,6 +17,7 @@ object Configuration {
     const val applicationId = "com.lucas.breweries"
     const val applicationNameSpace = "com.lucas.breweries"
     const val dataModuleNameSpace = "com.lucas.breweries.data"
+    const val coreModuleNameSpace = "com.lucas.breweries.core"
     const val domainModuleNameSpace = "com.lucas.breweries.domain"
 }
 

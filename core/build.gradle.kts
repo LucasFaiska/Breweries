@@ -1,20 +1,18 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    id(Plugins.AndroidLibrary.id)
+    id(Plugins.KotlinAndroid.id)
+    id(Plugins.Kapt.id)
 }
 
 android {
-    namespace = "com.lucas.brewery.core"
-    compileSdk = 34
+    namespace = Configuration.coreModuleNameSpace
+    compileSdk = Configuration.compileSdk
 
     defaultConfig {
-        applicationId = "com.lucas.brewery.core"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = Configuration.minSdk
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -27,20 +25,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = Configuration.javaVersion
+        targetCompatibility = Configuration.javaVersion
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = Configuration.jvmTarget
     }
+
+    android.buildFeatures.buildConfig = true
 }
 
 dependencies {
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(Dependencies.Hilt.hilt)
+    kapt(Dependencies.Hilt.hiltCompiler)
 }
