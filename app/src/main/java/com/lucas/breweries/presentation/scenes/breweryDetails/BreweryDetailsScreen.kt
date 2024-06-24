@@ -45,7 +45,6 @@ fun BreweryDetailsSuccessContent(brewery: Brewery) {
     Column(
         modifier = Modifier
             .background(color = Onyx)
-            .verticalScroll(rememberScrollState())
             .fillMaxSize()
             .padding(dimensionResource(id = R.dimen.default_padding)),
         verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.medium_padding))
