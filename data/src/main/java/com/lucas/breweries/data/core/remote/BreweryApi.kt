@@ -3,6 +3,7 @@ package com.lucas.breweries.data.core.remote
 import com.lucas.breweries.data.core.remote.dto.BreweryResponse
 import com.lucas.breweries.data.core.remote.network.NetworkResponse
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface BreweryApi {
@@ -14,7 +15,7 @@ interface BreweryApi {
     ): NetworkResponse<List<BreweryResponse>>
 
     @GET("breweries/{id}")
-    suspend fun getBrewery(@Query("id") id: String): NetworkResponse<BreweryResponse>
+    suspend fun getBrewery(@Path("id") id: String): NetworkResponse<BreweryResponse>
 
     companion object {
         const val BREWERIES_PAGE_SIZE = 30

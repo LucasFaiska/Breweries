@@ -34,26 +34,32 @@ import com.lucas.breweries.presentation.theme.Timberwolf
 import com.lucas.breweries.presentation.theme.Typography
 
 @Composable
-fun BreweriesListScreen(uiState: BreweriesListUiState) {
+fun BreweriesListScreen(
+    uiState: BreweriesListUiState,
+    onBreweryListUiEvent: (BreweriesListUiEvent) -> Unit
+) {
     when (uiState) {
         is BreweriesListUiState.Loading -> {
             LoadingScreen()
         }
 
         is BreweriesListUiState.Success -> {
-            BreweriesListSuccessScreenContent(uiState = uiState)
+            BreweriesListSuccessScreenContent(uiState, onBreweryListUiEvent)
         }
 
         is BreweriesListUiState.Error -> {
             ErrorScreen {
-
+                onBreweryListUiEvent(BreweriesListUiEvent.OnRetryButtonClick)
             }
         }
     }
 }
 
 @Composable
-fun BreweriesListSuccessScreenContent(uiState: BreweriesListUiState.Success) {
+fun BreweriesListSuccessScreenContent(
+    uiState: BreweriesListUiState.Success,
+    onBreweryListUiEvent: (BreweriesListUiEvent) -> Unit
+) {
     val breweries: LazyPagingItems<Brewery> =
         uiState.breweries.collectAsLazyPagingItems()
 
@@ -64,7 +70,7 @@ fun BreweriesListSuccessScreenContent(uiState: BreweriesListUiState.Success) {
     ) {
 
         BreweriesListScreenTitle(breweries)
-        BreweriesList(breweries)
+        BreweriesList(breweries, onBreweryListUiEvent)
     }
 }
 
@@ -83,12 +89,15 @@ private fun BreweriesListScreenTitle(breweries: LazyPagingItems<Brewery>) {
 }
 
 @Composable
-private fun BreweriesList(breweries: LazyPagingItems<Brewery>) {
+private fun BreweriesList(
+    breweries: LazyPagingItems<Brewery>,
+    onBreweryListUiEvent: (BreweriesListUiEvent) -> Unit
+) {
 
     LazyColumn {
         items(breweries.itemCount) { index ->
             breweries[index]?.let { brewery ->
-                BreweryItem(brewery)
+                BreweryItem(brewery, onBreweryListUiEvent)
             }
         }
     }
@@ -96,14 +105,19 @@ private fun BreweriesList(breweries: LazyPagingItems<Brewery>) {
 }
 
 @Composable
-private fun BreweryItem(brewery: Brewery) {
+private fun BreweryItem(
+    brewery: Brewery,
+    onBreweryListUiEvent: (BreweriesListUiEvent) -> Unit
+) {
     Box(
         modifier = Modifier
             .background(color = Onyx)
             .fillMaxWidth()
             .testTag(breweryItemTestTag)
             .clickable {
-
+                onBreweryListUiEvent(
+                    BreweriesListUiEvent.NavigateToBreweryDetails(brewery.id)
+                )
             }
     ) {
 
