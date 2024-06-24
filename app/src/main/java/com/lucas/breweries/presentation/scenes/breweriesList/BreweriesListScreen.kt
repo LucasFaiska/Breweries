@@ -132,6 +132,7 @@ private fun BreweryItem(
                 color = Timberwolf
             )
 
+
             Text(
                 style = Typography.body1,
                 text = brewery.address,

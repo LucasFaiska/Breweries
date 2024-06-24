@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Breweries</string>
     <string name="breweries_list_title">Showing %s Breweries</string>
+    <string name="type_info">Type: %s</string>
+    <string name="address_info">Address: %s, %s, %s, %s, %s</string>
+    <string name="phone_info">Phone: %s</string>
+    <string name="website_info">Website: %s</string>
     <string name="error_screen_error_message">An error has occurred!</string>
     <string name="error_screen_button_label">Retry</string>
 </resources>
