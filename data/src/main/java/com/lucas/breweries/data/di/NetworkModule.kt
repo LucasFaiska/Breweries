@@ -61,6 +61,6 @@ object NetworkModule {
     fun provideBreweryApi(retrofit: Retrofit): BreweryApi =
         retrofit.create(BreweryApi::class.java)
 
-    private const val TIMEOUT = 30L
-    private const val BASE_URL = "https://api.openbrewerydb.org/v1/"
+    const val TIMEOUT = 30L
+    const val BASE_URL = "https://api.openbrewerydb.org/v1/"
 }

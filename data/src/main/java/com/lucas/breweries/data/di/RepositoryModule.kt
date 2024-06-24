@@ -3,8 +3,8 @@ package com.lucas.breweries.data.di
 import com.lucas.breweries.data.core.remote.BreweryApi
 import com.lucas.breweries.data.datasource.BreweryDataSource
 import com.lucas.breweries.data.datasource.BreweryRemoteDataSource
-import com.lucas.breweries.data.repository.BreweriesRepositoryImpl
-import com.lucas.breweries.domain.repository.BreweriesRepository
+import com.lucas.breweries.data.repository.BreweryRepositoryImpl
+import com.lucas.breweries.domain.repository.BreweryRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,8 +27,8 @@ object RepositoryModule {
     fun provideBreweriesRepository(
         breweryDataSource: BreweryDataSource,
         @IoDispatcher coroutineDispatcher: CoroutineDispatcher
-    ): BreweriesRepository {
-        return BreweriesRepositoryImpl(breweryDataSource, coroutineDispatcher)
+    ): BreweryRepository {
+        return BreweryRepositoryImpl(breweryDataSource, coroutineDispatcher)
     }
 
 }

@@ -9,7 +9,7 @@ import com.lucas.breweries.data.datasource.BreweryDataSource
 import com.lucas.breweries.data.mapper.toBrewery
 import com.lucas.breweries.data.paging.BreweryPagingSource
 import com.lucas.breweries.domain.model.Brewery
-import com.lucas.breweries.domain.repository.BreweriesRepository
+import com.lucas.breweries.domain.repository.BreweryRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -17,10 +17,10 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class BreweriesRepositoryImpl @Inject constructor(
+class BreweryRepositoryImpl @Inject constructor(
     private val breweryDataSource: BreweryDataSource,
     private val coroutineDispatcher: CoroutineDispatcher
-) : BreweriesRepository {
+) : BreweryRepository {
 
     override suspend fun getBreweries(): Flow<PagingData<Brewery>> =
         withContext(coroutineDispatcher) {

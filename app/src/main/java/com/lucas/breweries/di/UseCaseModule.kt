@@ -1,6 +1,6 @@
 package com.lucas.breweries.di
 
-import com.lucas.breweries.domain.repository.BreweriesRepository
+import com.lucas.breweries.domain.repository.BreweryRepository
 import com.lucas.breweries.domain.usecase.GetBreweriesUseCase
 import com.lucas.breweries.domain.usecase.GetBreweriesUseCaseImpl
 import com.lucas.breweries.domain.usecase.GetBreweryDetailsUseCase
@@ -16,16 +16,16 @@ object UseCaseModule {
 
     @Provides
     fun provideGetBreweriesUseCase(
-        breweriesRepository: BreweriesRepository
+        breweryRepository: BreweryRepository
     ): GetBreweriesUseCase {
-        return GetBreweriesUseCaseImpl(breweriesRepository)
+        return GetBreweriesUseCaseImpl(breweryRepository)
     }
 
     @Provides
     fun provideGetBreweryDetailsUseCase(
-        breweriesRepository: BreweriesRepository
+        breweryRepository: BreweryRepository
     ): GetBreweryDetailsUseCase {
-        return GetBreweryDetailsUseCaseImpl(breweriesRepository)
+        return GetBreweryDetailsUseCaseImpl(breweryRepository)
     }
 
 }
