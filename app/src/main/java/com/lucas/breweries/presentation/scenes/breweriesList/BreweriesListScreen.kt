@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,7 +13,6 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.platform.testTag
@@ -22,6 +20,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.lucas.breweries.R
@@ -100,6 +99,16 @@ private fun BreweriesList(
                 BreweryItem(brewery, onBreweryListUiEvent)
             }
         }
+
+        breweries.apply {
+            when {
+                loadState.refresh is LoadState.Loading -> {
+                    item {
+                        LoadingScreen()
+                    }
+                }
+            }
+        }
     }
 
 }
@@ -146,17 +155,6 @@ private fun BreweryItem(
 
         Divider(thickness = 1.dp, color = Black)
     }
-}
-
-@Composable
-private fun ColumnScope.BottomLoadingIndicator() {
-    CircularProgressIndicator(
-        modifier = Modifier
-            .testTag(bottomLoadingIndicatorTestTag)
-            .size(70.dp)
-            .padding(dimensionResource(id = R.dimen.default_padding))
-            .align(Alignment.CenterHorizontally), color = FireBrick
-    )
 }
 
 const val screenTitleTestTag = "screenTitleTestTag"

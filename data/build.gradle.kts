@@ -46,8 +46,9 @@ dependencies {
     kapt(Dependencies.Hilt.hiltCompiler)
 
     testImplementation(Dependencies.Test.junit)
-    testImplementation(Dependencies.Test.junitExt)
     testImplementation(Dependencies.OkHttp.mockWebServer)
     testImplementation(Dependencies.Test.mockk)
+    testImplementation(Dependencies.Test.roboletric)
     testImplementation(Dependencies.Coroutines.test)
+    testImplementation(Dependencies.Test.turbine)
 }

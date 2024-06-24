@@ -55,10 +55,11 @@ object Dependencies {
 
     object Test {
         const val junit = "junit:junit:4.13.2"
-        const val junitExt = "androidx.test.ext:junit:1.5.2"
+        const val junitExt = "androidx.test.ext:junit:1.5.1"
         const val espressoCore = "androidx.test.espresso:espresso-core:3.6.0"
         const val mockk = "io.mockk:mockk:1.13.11"
         const val turbine = "app.cash.turbine:turbine:1.1.0"
+        const val roboletric = "org.robolectric:robolectric:4.12.2"
     }
 
     object Retrofit {
